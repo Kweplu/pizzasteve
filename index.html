@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUOCO — Artisan Pizza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-text">FUOCO</div>
+        <div class="preloader-bar"><div class="preloader-fill"></div></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="#" class="nav-logo">FUOCO.</a>
+        <div class="nav-links">
+            <a href="#menu" class="nav-link">Menu</a>
+            <a href="#process" class="nav-link">Process</a>
+            <a href="#gallery" class="nav-link">Ambiance</a>
+            <a href="#reviews" class="nav-link">Reviews</a>
+        </div>
+        <a href="#reserve" class="nav-cta btn-magnetic">Reserve a Table</a>
+        <button class="nav-menu-btn" id="menuBtn">
+            <span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#menu" class="mobile-link">Menu</a>
+        <a href="#process" class="mobile-link">Process</a>
+        <a href="#gallery" class="mobile-link">Ambiance</a>
+        <a href="#reviews" class="mobile-link">Reviews</a>
+        <a href="#reserve" class="mobile-link">Reserve</a>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-content">
+            <div class="hero-tag animate-on-scroll fade-up">EST. 2018 — NEW YORK CITY</div>
+            <h1 class="hero-title">
+                <span class="line animate-on-scroll clip-up">Not just</span>
+                <span class="line animate-on-scroll clip-up delay-1"><em>Pizza.</em></span>
+                <span class="line animate-on-scroll clip-up delay-2">An experience.</span>
+            </h1>
+            <p class="hero-desc animate-on-scroll fade-up delay-3">Wood-fired perfection crafted from locally sourced ingredients, ancient dough techniques, and a passion for the perfect crust.</p>
+            <div class="hero-buttons animate-on-scroll fade-up delay-3">
+                <a href="#menu" class="btn btn-primary btn-magnetic">Explore Menu</a>
+                <a href="#process" class="btn btn-outline btn-magnetic">Our Craft</a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator animate-on-scroll fade-up delay-4">
+            <div class="line"></div>
+            <span>Scroll to explore</span>
+        </div>
+    </header>
+
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="marquee-track">
+            <span>WOOD FIRED</span><span>•</span>
+            <span>HANDMADE DOUGH</span><span>•</span>
+            <span>LOCAL INGREDIENTS</span><span>•</span>
+            <span>ANCIENT TECHNIQUES</span><span>•</span>
+            <span>WOOD FIRED</span><span>•</span>
+            <span>HANDMADE DOUGH</span><span>•</span>
+            <span>LOCAL INGREDIENTS</span><span>•</span>
+            <span>ANCIENT TECHNIQUES</span><span>•</span>
+        </div>
+    </div>
+
+    <!-- Menu Section -->
+    <section class="menu section-padding" id="menu">
+        <div class="container">
+            <div class="section-header animate-on-scroll fade-up">
+                <span class="overline">The Menu</span>
+                <h2 class="heading-xl">Signature Creations</h2>
+            </div>
+            
+            <div class="menu-filters animate-on-scroll fade-up">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="classic">Classic</button>
+                <button class="filter-btn" data-filter="specialty">Specialty</button>
+                <button class="filter-btn" data-filter="vegan">Vegan</button>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cinematic Split Section -->
+    <section class="cinematic-section">
+        <div class="cinematic-text animate-on-scroll fade-up">
+            <span class="overline">The Secret</span>
+            <h2 class="heading-xl italic">"We don’t just cook pizza. We curate an atmosphere where fire meets flavor."</h2>
+            <p>— Marco Rossi, Head Pizzaiolo</p>
+        </div>
+        <div class="cinematic-image animate-on-scroll scale-in"></div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process section-padding" id="process">
+        <div class="container">
+            <div class="section-header animate-on-scroll fade-up">
+                <span class="overline">The Process</span>
+                <h2 class="heading-xl">Crafted with Time</h2>
+            </div>
+            <div class="process-grid">
+                <div class="process-card animate-on-scroll fade-up">
+                    <span class="process-num">01</span>
+                    <h3>The Sourcing</h3>
+                    <p>San Marzano tomatoes from the slopes of Mount Vesuvius. Fresh mozzarella delivered daily from local artisan farms.</p>
+                </div>
+                <div class="process-card animate-on-scroll fade-up delay-1">
+                    <span class="process-num">02</span>
+                    <h3>The Ferment</h3>
+                    <p>Our dough rests for exactly 72 hours. This slow fermentation creates a light, airy crust with a complex, tangy flavor.</p>
+                </div>
+                <div class="process-card animate-on-scroll fade-up delay-2">
+                    <span class="process-num">03</span>
+                    <h3>The Fire</h3>
+                    <p>Baked in a hand-built imported Neapolitan oven at exactly 900°F (482°C) for 90 seconds. Charred, crisp, perfect.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery section-padding" id="gallery">
+        <div class="container">
+            <div class="section-header animate-on-scroll fade-up">
+                <span class="overline">The Ambiance</span>
+                <h2 class="heading-xl">Feel the Heat</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item gi-lg animate-on-scroll fade-up" style="background: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;"></div>
+                <div class="gallery-item animate-on-scroll fade-up delay-1" style="background: url('https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;"></div>
+                <div class="gallery-item animate-on-scroll fade-up delay-2" style="background: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;"></div>
+                <div class="gallery-item gi-wide animate-on-scroll fade-up" style="background: url('https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews section-padding" id="reviews">
+        <div class="container">
+            <div class="section-header animate-on-scroll fade-up">
+                <span class="overline">Testimonials</span>
+                <h2 class="heading-xl">What They Say</h2>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card animate-on-scroll fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p>"The best pizza I’ve ever had outside of Naples. The crust is impossibly light and the ingredients taste like they were picked an hour ago."</p>
+                    <div class="review-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info"><strong>Sarah M.</strong> <span>Food Critic</span></div>
+                    </div>
+                </div>
+                <div class="review-card animate-on-scroll fade-up delay-1">
+                    <div class="stars">★★★★★</div>
+                    <p>"A religious experience. The ambiance, the smell of wood smoke, and that perfect char on the crust. FUOCO is a masterpiece."</p>
+                    <div class="review-author">
+                        <div class="author-avatar">JK</div>
+                        <div class="author-info"><strong>James K.</strong> <span>Regular</span></div>
+                    </div>
+                </div>
+                <div class="review-card animate-on-scroll fade-up delay-2">
+                    <div class="stars">★★★★★</div>
+                    <p>"Finally, a vegan pizza that doesn't taste like cardboard! The roasted vegetable pie with cashew mozzarella changed my life."</p>
+                    <div class="review-author">
+                        <div class="author-avatar">ER</div>
+                        <div class="author-info"><strong>Emily R.</strong> <span>Vegan Foodie</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation CTA -->
+    <section class="cta-section section-padding" id="reserve">
+        <div class="cta-bg"></div>
+        <div class="container cta-content">
+            <h2 class="heading-xl animate-on-scroll clip-up">Reserve Your<br><em>Experience</em></h2>
+            <p class="animate-on-scroll fade-up">Tables fill up fast. Secure your spot by the fire tonight.</p>
+            <a href="#" class="btn btn-primary btn-lg btn-magnetic animate-on-scroll fade-up">Book a Table Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>FUOCO.</h3>
+                <p>Artisan wood-fired pizza in the heart of Manhattan.</p>
+            </div>
+            <div class="footer-links-col">
+                <h4>Navigate</h4>
+                <a href="#menu">Menu</a>
+                <a href="#process">Process</a>
+                <a href="#gallery">Gallery</a>
+            </div>
+            <div class="footer-links-col">
+                <h4>Info</h4>
+                <a href="#">Careers</a>
+                <a href="#">Press</a>
+                <a href="#">Gift Cards</a>
+            </div>
+            <div class="footer-links-col">
+                <h4>Location</h4>
+                <p>123 W 4th St<br>New York, NY 10012<br>Open 5PM - 12AM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 FUOCO Pizzeria. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
