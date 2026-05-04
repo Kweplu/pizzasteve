@@ -300,3 +300,59 @@ body {
     .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
     .footer-brand h3 { font-size: 2.5rem; }
 }
+
+
+/* ============================================
+   FULLSTACK: ORDER SYSTEM UI
+   ============================================ */
+.cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+.cart-overlay.open { opacity: 1; visibility: visible; }
+
+.cart-drawer { position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh; background: var(--bg); z-index: 1000; display: flex; flex-direction: column; box-shadow: -10px 0 30px rgba(0,0,0,0.2); transition: right 0.4s cubic-bezier(0.19, 1, 0.22, 1); }
+.cart-drawer.open { right: 0; }
+
+.cart-drawer-header { display: flex; justify-content: space-between; align-items: center; padding: 2rem; border-bottom: 1px solid rgba(0,0,0,0.1); }
+.cart-drawer-header h3 { font-size: 1.2rem; letter-spacing: 1px; }
+.close-cart { background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--text); }
+
+.cart-drawer-items { flex: 1; padding: 1.5rem; overflow-y: auto; }
+.empty-cart { color: var(--grey); text-align: center; margin-top: 4rem; font-style: italic; }
+
+.cart-item-row { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 0.95rem; }
+.remove-item { background: none; border: none; color: var(--grey); cursor: pointer; font-size: 1.2rem; transition: color 0.2s; }
+.remove-item:hover { color: var(--accent); }
+
+.cart-drawer-footer { padding: 1.5rem; border-top: 1px solid rgba(0,0,0,0.1); background: var(--bg-dark); }
+.cart-total-display { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-light); }
+.name-input { width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; border-radius: 8px; font-family: var(--font-sans); outline: none; box-sizing: border-box; }
+.name-input::placeholder { color: rgba(255,255,255,0.3); }
+.name-input:focus { border-color: var(--accent); }
+
+/* Make the '+' button open the cart on hover out */
+.menu-add-btn { z-index: 10; }
+
+/* ============================================
+   FULLSTACK: ORDER SYSTEM UI
+   ============================================ */
+.cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+.cart-overlay.open { opacity: 1; visibility: visible; }
+
+.cart-drawer { position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh; background: var(--bg); z-index: 1000; display: flex; flex-direction: column; box-shadow: -10px 0 30px rgba(0,0,0,0.2); transition: right 0.4s cubic-bezier(0.19, 1, 0.22, 1); }
+.cart-drawer.open { right: 0; }
+
+.cart-drawer-header { display: flex; justify-content: space-between; align-items: center; padding: 2rem; border-bottom: 1px solid rgba(0,0,0,0.1); }
+.cart-drawer-header h3 { font-size: 1.2rem; letter-spacing: 1px; }
+.close-cart { background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--text); }
+
+.cart-drawer-items { flex: 1; padding: 1.5rem; overflow-y: auto; }
+.empty-cart { color: var(--grey); text-align: center; margin-top: 4rem; font-style: italic; }
+
+.cart-item-row { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 0.95rem; }
+.remove-item { background: none; border: none; color: var(--grey); cursor: pointer; font-size: 1.2rem; transition: color 0.2s; }
+.remove-item:hover { color: var(--accent); }
+
+.cart-drawer-footer { padding: 1.5rem; border-top: 1px solid rgba(0,0,0,0.1); background: var(--bg-dark); }
+.cart-total-display { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-light); }
+.name-input { width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; border-radius: 8px; font-family: var(--font-sans); outline: none; box-sizing: border-box; }
+.name-input::placeholder { color: rgba(255,255,255,0.3); }
+.name-input:focus { border-color: var(--accent); }

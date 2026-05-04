@@ -168,6 +168,20 @@ function renderMenu(filter) {
         el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
         el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
     });
+    // Re-attach cart listeners to newly rendered buttons
+menuGrid.querySelectorAll('.menu-add-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const card = e.target.closest('.menu-card');
+        if (!card) return;
+        const name = card.querySelector('h3').innerText;
+        const price = parseFloat(card.querySelector('.menu-card-top span').innerText.replace('$', ''));
+        cart.push({ name, price });
+        updateCartUI();
+        openCart();
+        btn.innerText = '✓';
+        setTimeout(() => btn.innerText = '+', 1000);
+    });
+});
 }
 
 // Filter Buttons
@@ -184,12 +198,104 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 renderMenu('all');
 
 // --- SMOOTH SCROLL FOR ANCHORS ---
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+// ==========================================
+// FULL STACK: BACKEND INTEGRATION
+// ==========================================
+
+const BACKEND_URL = 'http://localhost:3000/api/order';
+let cart = [];
+
+// Open/Close Cart Drawer
+const cartDrawer = document.getElementById('cartDrawer');
+const cartOverlay = document.getElementById('cartOverlay');
+
+document.getElementById('closeCart').addEventListener('click', () => {
+    cartDrawer.classList.remove('open');
+    cartOverlay.classList.remove('open');
+});
+cartOverlay.addEventListener('click', () => {
+    cartDrawer.classList.remove('open');
+    cartOverlay.classList.remove('open');
+});
+
+function openCart() {
+    cartDrawer.classList.add('open');
+    cartOverlay.classList.add('open');
+}
+
+// Add to cart when + button is clicked
+
+function updateCartUI() {
+    const itemsContainer = document.getElementById('cartItems');
+    const totalDisplay = document.getElementById('cartTotalPrice');
+    
+    if (cart.length === 0) {
+        itemsContainer.innerHTML = '<p class="empty-cart">Your selection is empty.</p>';
+        totalDisplay.innerText = '$0.00';
+        return;
+    }
+
+    itemsContainer.innerHTML = cart.map((item, index) => `
+        <div class="cart-item-row">
+            <span>${item.name}</span>
+            <span>$${item.price.toFixed(2)}</span>
+            <button class="remove-item" onclick="removeFromCart(${index})">&times;</button>
+        </div>
+    `).join('');
+
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    totalDisplay.innerText = `$${total.toFixed(2)}`;
+}
+
+window.removeFromCart = function(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+};
+
+// Send Order to Backend
+document.getElementById('sendOrderBtn').addEventListener('click', async () => {
+    const name = document.getElementById('customerName').value || 'Walk-in Guest';
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+    if (cart.length === 0) {
+        alert("Please add a pizza to your selection first!");
+        return;
+    }
+
+    const btn = document.getElementById('sendOrderBtn');
+    const originalText = btn.innerText;
+    btn.innerText = 'Transmitting...';
+    btn.style.opacity = '0.5';
+    btn.disabled = true;
+
+    try {
+        const response = await fetch(BACKEND_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                customerName: name,
+                items: cart,
+                total: total
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            alert("🎉 Order sent to your phone!");
+            cart = []; 
+            updateCartUI();
+            document.getElementById('customerName').value = '';
+            cartDrawer.classList.remove('open');
+            cartOverlay.classList.remove('open');
+        } else {
+            alert("BACKEND ERROR: " + JSON.stringify(data));
         }
-    });
+    } catch (error) {
+        alert("CONNECTION ERROR: " + error.message);
+    } finally {
+        btn.innerText = originalText;
+        btn.style.opacity = '1';
+        btn.disabled = false;
+    }
 });

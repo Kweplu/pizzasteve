@@ -200,6 +200,24 @@
         </div>
     </section>
 
+    
+           <!-- Order Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h3>Your Selection</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-drawer-items" id="cartItems">
+            <p class="empty-cart">Your selection is empty.</p>
+        </div>
+        <div class="cart-drawer-footer">
+            <div class="cart-total-display">Total: <span id="cartTotalPrice">$0.00</span></div>
+            <input type="text" id="customerName" placeholder="Your Name" class="name-input">
+            <button class="btn btn-primary btn-lg" id="sendOrderBtn">Send Order to Kitchen</button>
+        </div>
+    </aside>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container footer-grid">
